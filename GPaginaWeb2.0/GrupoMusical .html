@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<!--Un botón que cambia el color o imagen del fondo 
+Un botón que cambia el texto de un elemento p a una otra cadena predefinida en una variable JavaScript
+Cerca de una imagen de su pagina, colocar 2 botones, uno de estos botones cambiara el atributo src de la imagen para poner una diferente, mientras que el otro botón regresara el src a su estado original.
+Un botón que esconda el mensaje "hola mundo" el cual debe esta colocado en una etiqueta <h2>
+Define un elemento <div id="miDiv">, usa un script ligado en un botón para escribir dentro de ese div una etiqueta <h1> que diga "Este texto no lo escribió tuNombre, lo escribió JavaScript"-->
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>ExamenU1</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        body {
+            background-image: url(fondo1.jpg);
+            background-attachment: fixed;/*para que sea estático*/
+
+        }
+
+        .oculto {
+            display: none;
+        }
+    </style> 
+     
+</head>
+<body>
+
+    <font color="#ffffff" face="arial" >
+    <center><strong><h1>Twenty one pilots</h1></strong> </center>
+    <center><img src="logo.png" width="400"></center>
+
+    <div>
+        <center><button onclick="cambiarFondo()">Cambiar fondo</button></center>
+    </div>
+    
+    <div>
+    <p id="texto"><strong>Twenty One Pilots</strong> (estilizado en minúsculas o como twenty øne piløts)
+         es un dúo musical estadounidense de Columbus, Ohio. La banda se formó en 2009 por el vocalista <i>Tyler Joseph</i> junto con 
+         <i>Nick Thomas</i> y <i>Chris Salih</i>, quienes se fueron en 2011. Desde su partida, la formación ha consistido en <i>Tyler Joseph</i>  
+         y el baterista <i>Josh Dun</i>. El dúo es principalmente conocido por los sencillos "Stressed Out", "Ride" y "Heathens". El grupo recibió 
+         un Premio Grammy al mejor pop de dúo/grupo en los Premios Grammy de 2017.
+    </p>
+    <center><button onclick="cambiarTexto()">Cambiar párrafo.</button></center>
+    </div>
+
+    <center><h2>Integrantes actuales y su formación:</h2>
+    <img id ="imagen" src="josh tyler.jpg" width="350"></center>
+
+    <div>
+        <center><button onclick="cambiarImagen()">Cambiar imagen</button></center>
+    </div>
+
+    <br>
+    <div>
+        <center><button onclick="regresarImagen()">Regresar imagen</button></center>
+    </div>   
+    
+    <ul>
+        <li><strong>Tyler Joseph:</strong> vocalista principal, piano, ukelele, bajo, keytar, sintetizadores, guitarra, pandereta, percusiones batería (2009-presente)</li>
+        <li><strong>Josh Dun:</strong> batería, trompeta, percusiones, pandereta, piano, vocalista (2011-presente)</li>
+    </ul>
+
+    <h2 id="mensaje">Hola mundo</h2>
+    <button onclick="ocultarMostrar()">Ocultar/Mostrar</button>
+
+    <br>
+    <br>
+    <div id="miDiv"></div>
+    <button onclick="escribirTexto()">Haz clic aquí</button>
+
+    <center><h2>Discografía:</h2></center>
+    <ul>
+        <li><strong>Twenty One Pilots (2009)</strong> <br><img src="top.jpg" width="250"></li><br>
+        <li><strong>Regional at Best (2011)</strong><br><img src="Regional_at_Best.webp" width="250"></li><br>
+        <li><strong>Vessel (2013)</strong><br><img src="vessel.jpg" width="250"></li><br>
+        <li><strong>Blurryface (2015)</strong><br><img src="blurryface.jpg" width="250"></li><br>
+        <li><strong>Trench (2018)</strong><br><img src="trench.jpg" width="250"></li><br>
+        <li><strong>Scaled and Icy (2021)</strong><br><img src="scaledandicy.jpg" width="250"></li>
+    </ul>
+
+    
+    
+    <script>
+        function cambiarImagen() {
+            document.getElementById("imagen").src = "josh tyler2.jpg";
+        }
+    </script>
+
+    <script>
+        function regresarImagen() {
+            document.getElementById("imagen").src = "josh tyler.jpg";
+        }
+    </script>
+
+    <script>
+        function cambiarFondo() {
+            document.body.style.backgroundImage = "url('fondoNegro.jpg')";
+        }
+    </script>
+
+    
+    <script>
+        function cambiarTexto() {
+            document.getElementById("texto").innerHTML = "<strong>¿Sabías que en sus conciertos usan máscaras o pasamontañas? La razón de esto es porque Tyler y Josh quieren que en sus conciertos la gente se sienta identificada con sus canciones, no se trata de cómo se ven, se trata de su música y sus letras.</strong>";
+        }
+    </script>
+
+
+    <script>
+        function ocultarMostrar() {
+            var mensaje = document.getElementById("mensaje");
+            mensaje.classList.toggle("oculto");
+        }
+    </script>
+
+
+    <script>
+        function escribirTexto() {
+          var div = document.getElementById("miDiv");
+          var h1 = document.createElement("h1");
+          h1.textContent = "Este texto no lo escribió Gimena, lo escribió JavaScript:)";
+          div.appendChild(h1);
+        }
+    </script>
+   
+
+</body>
+</html>
