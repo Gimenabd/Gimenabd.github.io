@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
-<!--Un botón que cambia el color o imagen del fondo 
-Un botón que cambia el texto de un elemento p a una otra cadena predefinida en una variable JavaScript
-Cerca de una imagen de su pagina, colocar 2 botones, uno de estos botones cambiara el atributo src de la imagen para poner una diferente, mientras que el otro botón regresara el src a su estado original.
-Un botón que esconda el mensaje "hola mundo" el cual debe esta colocado en una etiqueta <h2>
-Define un elemento <div id="miDiv">, usa un script ligado en un botón para escribir dentro de ese div una etiqueta <h1> que diga "Este texto no lo escribió tuNombre, lo escribió JavaScript"-->
+<!--Debe tener al menos 5 imágenes
+Las URL de las imágenes deben estar definidas en un arreglo de JS
+Debes manipular solo una etiqueta img
+Usa EventListeners o atributos onClick en los botones-->
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -45,16 +44,29 @@ Define un elemento <div id="miDiv">, usa un script ligado en un botón para escr
     </div>
 
     <center><h2>Integrantes actuales y su formación:</h2>
-    <img id ="imagen" src="josh tyler.jpg" width="350"></center>
+    </center>
 
-    <div>
+   <!-- <div>
         <center><button onclick="cambiarImagen()">Cambiar imagen</button></center>
     </div>
 
     <br>
     <div>
         <center><button onclick="regresarImagen()">Regresar imagen</button></center>
-    </div>   
+    </div>
+-->
+    
+    <div style="align-items: center; flex-direction: column;">
+        <center><img id ="imagenCambiante" src="josh tyler.jpg" width="400"></center>
+        <center><button onclick="cambiarImagenAnterior()">Imagen Anterior</button></center>
+        <center><button onclick="cambiarImagenSiguiente()">Imagen Siguiente</button></center>
+    </div>
+
+    <!--<div style="align-items: center; flex-direction: column;">
+        <img id="imagen" src="imgs/fondo.jpg" alt="portada"> <br>
+        <button onclick="next()">Siguiente</button>
+        <button onclick="last()">Anterior</button>
+    </div>-->
     
     <ul>
         <li><strong>Tyler Joseph:</strong> vocalista principal, piano, ukelele, bajo, keytar, sintetizadores, guitarra, pandereta, percusiones batería (2009-presente)</li>
@@ -81,7 +93,7 @@ Define un elemento <div id="miDiv">, usa un script ligado en un botón para escr
 
     
     
-    <script>
+   <!-- <script>
         function cambiarImagen() {
             document.getElementById("imagen").src = "josh tyler2.jpg";
         }
@@ -91,7 +103,7 @@ Define un elemento <div id="miDiv">, usa un script ligado en un botón para escr
         function regresarImagen() {
             document.getElementById("imagen").src = "josh tyler.jpg";
         }
-    </script>
+    </script>-->
 
     <script>
         function cambiarFondo() {
@@ -123,6 +135,68 @@ Define un elemento <div id="miDiv">, usa un script ligado en un botón para escr
           div.appendChild(h1);
         }
     </script>
+
+    <script>
+        let imagenes = [
+            "josh tyler.jpg",
+            "josh tyler2.jpg",
+            "josh tyler3.jpg",
+            "josh tyler4.png",
+            "josh tyler5.jpg"
+            ];
+
+        let indiceActual =0;
+
+        function cambiarImagenSiguiente(){
+            indiceActual = (indiceActual + 1) % imagenes.length;
+            cambiarImagen2(indiceActual);
+        }
+
+        function cambiarImagenAnterior(){
+            indiceActual = (indiceActual -1 + imagenes.length) % imagenes.length;
+            cambiarImagen2(indiceActual);
+        }
+
+        function cambiarImagen2(indice){
+            let img = document.getElementById("imagenCambiante");
+            img.src = imagenes[indice];
+        }
+
+    </script>
+
+   <!-- <script>
+        let carrusell = [
+            "imgs/fondo.jpg",
+            "imgs/TDH_ActI_Cover.jpg",
+            "imgs/TDH_ActII_Cover.jpg",
+            "imgs/TDH_ActIII_Cover.jpg",
+            "imgs/TDH_ActIV_Cover.jpg",
+            "imgs/TDH_ActV_Cover.jpg"
+        ];
+
+        let pos = 0;
+
+        function next() {
+            pos = (pos + 1) % carrusell.length;
+            cambio(pos);
+        }
+
+        function last() {
+            pos = (pos - 1 + carrusell.length) % carrusell.length;
+            cambio(pos);
+        }
+        
+        function cambio(posicion) {
+            let img = document.getElementById("imagen");
+            img.src = carrusell[posicion];
+        }
+    </script>
+
+    <div style="align-items: center; flex-direction: column;">
+        <img id="imagen" src="imgs/fondo.jpg" alt="portada"> <br>
+        <button onclick="next()">Siguiente</button>
+        <button onclick="last()">Anterior</button>
+    </div>-->
    
 
 </body>
