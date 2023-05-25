@@ -36,12 +36,24 @@
         <label>Fecha de nacimiento:</label><input type="datetime-local" name="nacimiento"><br>
         <label>Teléfono:</label><input type="tel" name="telefono"><br>
         <label>Usuario:</label><input type="text" name="usuario" ><br>
-        <label>Contraseña:</label><input type="password" name="contraseña" ><br>
+        <label>Contraseña:</label><input type="password" name="contraseña" onchange="funcion()" id="contra"><br>
         <label>Repetir contraseña:</label><input type="password" name="repcontraseña"><br>
         <input type="submit" value="Registrar Persona.">
         <!--onchange="funcion()"  es para mostrar una alerta al momento de hacer un cambio-->
     </form>  
 
+    <script>
+        function funcion() {
+                var contraseña = (document.getElementById("contra").value);
+                console.log(contraseña);
+                if (contraseña.length < 5) {
+                    alert ("Contraseña INSEGURA, agregar más caracteres.");
+                }else{
+                    alert ("Contraseña SEGURA.")
+                }
+            
+            }
+    </script>
     
 </body>
 </html>
