@@ -12,8 +12,8 @@
     <h2 id="cumple" ></h2>
 
 
-    <a href="mailto: 20223tn163@utez.edu.mx">Enviar correo.</a><br>
-    <a href="tel: 7341461248">Llamar.</a>
+    <a id = "mensaje3" href="mailto: 20223tn163@utez.edu.mx">Enviar correo.</a><br>
+    <a id = "mensaje4" href="tel: 7341461248">Llamar.</a>
     <script>
         getParameter =(key)=>{
 
@@ -81,6 +81,16 @@
             alert ("Contraseña SEGURA.")
         }
     }*/
+        //ENLAZANDO CORREO
+        var correo= getParameter("email");
+        console.log(getParameter("email"));
+        document.getElementById("mensaje3").href = "mailto:" + correo;
+
+        //ENLAZANDO TELEFONO
+        var tel= getParameter("telefono");
+        console.log(getParameter("telefono"));
+        document.getElementById("mensaje4").href = "tel:" + tel;
+
 
     </script>
 
