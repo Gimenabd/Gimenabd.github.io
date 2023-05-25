@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Respuesta</title>
+</head>
+<body>
+
+    <h1 id="mensaje" ></h1>
+    <h2 id="mensaje2" ></h2>
+    <h2 id="cumple" ></h2>
+
+
+    <a href="mailto: 20223tn163@utez.edu.mx">Enviar correo.</a><br>
+    <a href="tel: 7341461248">Llamar.</a>
+    <script>
+        getParameter =(key)=>{
+
+            address = window.location.search;//URL de la ventana actual
+
+            //Objeto de tipo URLSearchParams
+            parameterList = new URLSearchParams(address);
+            
+            //Regresa el valor del parametro "key"
+            return parameterList.get(key);
+        }  
+        
+
+        //MOSTRANDO NOMBRES
+        var nombre= getParameter("nombre");
+        console.log(getParameter("nombre"));// al momento de inspeccionar página, en la parte de console nos muestra los datos introducidos.
+
+        if(nombre!=null){
+            //El innerHTML es para modificar los valores que teniamos en la pagina
+            document.getElementById("mensaje").innerHTML = nombre;//document me permite acceder a las cosas de mi pagina html
+        }
+
+        /*function funcion(){
+            alert("se cambió el input: ");
+        } */
+
+
+        //MOSTRANDO APELLIDOS
+        var apellido= getParameter("apellidos");
+        console.log(getParameter("apellidos"));// al momento de inspeccionar página, en la parte de console nos muestra los datos introducidos.
+
+        if(apellido!=null){
+            //El innerHTML es para modificar los valores que teniamos en la pagina
+            document.getElementById("mensaje2").innerHTML = apellido;//document me permite acceder a las cosas de mi pagina html
+        }
+
+        function funcion(){
+            alert("se cambió el input: ");
+        }
+
+
+        //MOSTRANDO EDAD
+        console.log(getParameter("nacimiento"));
+        var nacimiento= getParameter("nacimiento");
+
+        var arreglo = nacimiento.split("-");
+        nacimiento = arreglo[0];
+
+        console.log(nacimiento);
+        //Date(); nos regresa la fecha actual
+        console.log(2023-nacimiento);
+
+        document.getElementById("cumple").innerHTML = "Tienes " + (2023-nacimiento) + " años.";
+
+
+        //MOSTRANDO ALERTA
+        function funcion(){
+        var contraseña =getParameter("contraseña");
+        console.log(getParameter("contraseña"));
+        //console.log (contraseña);
+        if (contraseña.length<5){
+            alert ("Contraseña INSEGURA, agregar más caracteres.");
+        }else{
+            alert ("Contraseña SEGURA.")
+        }
+    }
+
+    </script>
+
+
+</body>
+</html>

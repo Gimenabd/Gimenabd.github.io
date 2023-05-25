@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>registro</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'><!--Sirve para ajustar la vista/tamaño en cualquier otro dispositivo-->
+    <link rel='stylesheet' type='text/css' media='screen' href='main.js'>
+    <script src='main.js'></script>
+</head>
+<body>
+
+    <!--1.- Hacer una formulario para el registro de una persona 
+        Nombres
+        Apellidos
+        Correo
+        Fecha de nacimiento
+        Teléfono
+        Usuario
+        Contraseña
+        Repetir contraseña--
+        
+    2.- Utiliza JS para que la página de respuesta del formulario anterior muestre la información del nuevo usuario con las
+        siguientes condiciones:
+            - Los nombres ponerlos en <h1>
+            - Los apellidos en <h2>
+            - El correo en una <a href="mailto: correo"> y teléfono en <a href:"tel: telefono">
+            - La edad actual de la persona (cálculo a partir de la fecha de nacimiento).
+            - Si la contraseña tiene menos de 5 caracteres, alertar o avisar que la contraseña es insegura.-->
+
+    <form action="respuesta.html" method="get">
+        <!--El método get pone la información en la url. El méodo post no lo hace, brinda más seguridad-->
+        <label>Nombre:</label><input type="text" name="nombre" value="nein"><br>
+        <label>Apellidos:</label><input type="text" name="apellidos" ><br>
+        <label>Correo:</label><input type="email" name="email"><br>
+        <label>Fecha de nacimiento:</label><input type="datetime-local" name="nacimiento"><br>
+        <label>Teléfono:</label><input type="tel" name="telefono"><br>
+        <label>Usuario:</label><input type="text" name="usuario" ><br>
+        <label>Contraseña:</label><input type="password" name="contraseña" ><br>
+        <label>Repetir contraseña:</label><input type="password" name="repcontraseña"><br>
+        <input type="submit" value="Registrar Persona.">
+        <!--onchange="funcion()"  es para mostrar una alerta al momento de hacer un cambio-->
+    </form>  
+
+    
+</body>
+</html>
